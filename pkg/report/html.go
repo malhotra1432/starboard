@@ -58,7 +58,6 @@ func (h *HTMLReporter) GenerateReport(writer io.Writer) (err error) {
 		ConfigAuditReport: configAudit,
 		Workload:          h.workload,
 	}
-
 	templates.WritePageTemplate(writer, p)
 	return nil
 }

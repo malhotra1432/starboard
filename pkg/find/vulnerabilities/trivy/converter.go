@@ -5,6 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 	"strings"
+	"time"
 
 	starboard "github.com/aquasecurity/starboard/pkg/apis/aquasecurity/v1alpha1"
 	"github.com/google/go-containerregistry/pkg/name"
@@ -92,6 +93,7 @@ func (c *converter) convert(imageRef string, reports []ScanReport) (starboard.Vu
 		Registry:        registry,
 		Artifact:        artifact,
 		Summary:         c.toSummary(vulnerabilities),
+		GeneratedAt:     starboard.GeneratedAt{Time: time.Now()},
 		Vulnerabilities: vulnerabilities,
 	}, nil
 }
