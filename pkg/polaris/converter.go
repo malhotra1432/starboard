@@ -3,6 +3,7 @@ package polaris
 import (
 	"encoding/json"
 	"io"
+	"time"
 
 	sec "github.com/aquasecurity/starboard/pkg/apis/aquasecurity/v1alpha1"
 )
@@ -65,6 +66,7 @@ func (c *converter) toConfigAudit(result Result) (report sec.ConfigAudit) {
 			Vendor:  "Fairwinds Ops",
 			Version: polarisVersion,
 		},
+		GeneratedAt:     sec.GeneratedAt{Time: time.Now()},
 		PodChecks:       podChecks,
 		ContainerChecks: containerChecks,
 	}
