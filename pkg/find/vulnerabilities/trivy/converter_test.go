@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/aquasecurity/starboard/pkg/find/vulnerabilities/trivy"
 
@@ -156,6 +157,9 @@ null`,
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			report, err := trivy.NewConverter().Convert(tc.imageRef, strings.NewReader(tc.input))
+			fakeTime := starboard.GeneratedAt{Time: time.Now()}
+			report.GeneratedAt = fakeTime
+			tc.expectedReport.GeneratedAt = fakeTime
 			switch {
 			case tc.expectedError == nil:
 				require.NoError(t, err)
