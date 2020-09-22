@@ -5,6 +5,7 @@ import (
 	"errors"
 	"os"
 	"testing"
+	"time"
 
 	starboard "github.com/aquasecurity/starboard/pkg/apis/aquasecurity/v1alpha1"
 	"github.com/stretchr/testify/assert"
@@ -61,6 +62,9 @@ func TestConverter_Convert(t *testing.T) {
 					_ = gFile.Close()
 				}()
 
+				fakeTime := starboard.LastUpdated{Time: time.Now()}
+				kbop.LastUpdated = fakeTime
+				r.LastUpdated = fakeTime
 				assert.Equal(t, kbop, r, "Converted report does not match expected report")
 			default:
 				assert.EqualError(t, err, tc.err.Error())
