@@ -9,6 +9,6 @@ type Scanner struct {
 	Version string `json:"version"`
 }
 
-type GeneratedAt struct {
+type LastUpdated struct {
 	Time time.Time `json:"timestamp"`
 }

@@ -13,7 +13,7 @@ func OutputFrom(reader io.Reader) (report sec.KubeHunterOutput, err error) {
 		Vendor:  "Aqua Security",
 		Version: kubeHunterVersion,
 	}
-	report.GeneratedAt = sec.GeneratedAt{Time: time.Now()}
+	report.LastUpdated = sec.LastUpdated{Time: time.Now()}
 	err = json.NewDecoder(reader).Decode(&report)
 	return
 }

@@ -70,7 +70,7 @@ type ConfigAuditReportList struct {
 // TODO my-node)
 type ConfigAudit struct {
 	Scanner         Scanner            `json:"scanner"`
-	GeneratedAt     GeneratedAt		   `json:"generatedAt"`
+	LastUpdated     LastUpdated        `json:"lastUpdated"`
 	PodChecks       []Check            `json:"podChecks"`
 	ContainerChecks map[string][]Check `json:"containerChecks"`
 }

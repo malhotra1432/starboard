@@ -66,7 +66,7 @@ func (c *converter) toConfigAudit(result Result) (report sec.ConfigAudit) {
 			Vendor:  "Fairwinds Ops",
 			Version: polarisVersion,
 		},
-		GeneratedAt:     sec.GeneratedAt{Time: time.Now()},
+		LastUpdated:     sec.LastUpdated{Time: time.Now()},
 		PodChecks:       podChecks,
 		ContainerChecks: containerChecks,
 	}

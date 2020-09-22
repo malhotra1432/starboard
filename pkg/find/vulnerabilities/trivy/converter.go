@@ -93,7 +93,7 @@ func (c *converter) convert(imageRef string, reports []ScanReport) (starboard.Vu
 		Registry:        registry,
 		Artifact:        artifact,
 		Summary:         c.toSummary(vulnerabilities),
-		GeneratedAt:     starboard.GeneratedAt{Time: time.Now()},
+		LastUpdated:     starboard.LastUpdated{Time: time.Now()},
 		Vulnerabilities: vulnerabilities,
 	}, nil
 }

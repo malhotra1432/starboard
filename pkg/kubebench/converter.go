@@ -31,9 +31,9 @@ func (c *converter) Convert(reader io.Reader) (report starboard.CISKubeBenchOutp
 			Vendor:  "Aqua Security",
 			Version: kubeBenchVersion,
 		},
-		Summary:  c.summary(section),
-		GeneratedAt: starboard.GeneratedAt{Time: time.Now()},
-		Sections: section,
+		Summary:     c.summary(section),
+		LastUpdated: starboard.LastUpdated{Time: time.Now()},
+		Sections:    section,
 	}
 
 	return

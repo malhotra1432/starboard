@@ -105,7 +105,7 @@ type CISKubeBenchReportList struct {
 type CISKubeBenchOutput struct {
 	Scanner     Scanner               `json:"scanner"`
 	Summary     CISKubeBenchSummary   `json:"summary"`
-	GeneratedAt GeneratedAt           `json:"generatedAt"`
+	LastUpdated LastUpdated           `json:"lastUpdated"`
 	Sections    []CISKubeBenchSection `json:"sections"`
 }
 

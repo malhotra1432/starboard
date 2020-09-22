@@ -270,7 +270,7 @@ func (p *ReportPage) StreamBody(qw422016 *qt422016.Writer) {
 			scanner_name = report.Scanner.Name
 			scanner_vendor = report.Scanner.Vendor
 			scanner_version = report.Scanner.Version
-			creation_timestamp = report.GeneratedAt.Time.String()
+			creation_timestamp = report.LastUpdated.Time.String()
 			break
 		}
 
@@ -646,7 +646,7 @@ func (p *ReportPage) StreamBody(qw422016 *qt422016.Writer) {
                                 <div class="col">
                                     <p class="my-0">Generated at:  `)
 //line pkg/report/templates/default.qtpl:318
-		qw422016.E().S(p.ConfigAuditReport.Report.GeneratedAt.Time.String())
+		qw422016.E().S(p.ConfigAuditReport.Report.LastUpdated.Time.String())
 //line pkg/report/templates/default.qtpl:318
 		qw422016.N().S(`</p>
                                 </div>

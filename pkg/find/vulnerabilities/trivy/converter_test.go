@@ -157,9 +157,9 @@ null`,
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			report, err := trivy.NewConverter().Convert(tc.imageRef, strings.NewReader(tc.input))
-			fakeTime := starboard.GeneratedAt{Time: time.Now()}
-			report.GeneratedAt = fakeTime
-			tc.expectedReport.GeneratedAt = fakeTime
+			fakeTime := starboard.LastUpdated{Time: time.Now()}
+			report.LastUpdated = fakeTime
+			tc.expectedReport.LastUpdated = fakeTime
 			switch {
 			case tc.expectedError == nil:
 				require.NoError(t, err)
