@@ -3,6 +3,7 @@ package kubebench
 import (
 	"encoding/json"
 	"io"
+	"time"
 
 	starboard "github.com/aquasecurity/starboard/pkg/apis/aquasecurity/v1alpha1"
 )
@@ -31,6 +32,7 @@ func (c *converter) Convert(reader io.Reader) (report starboard.CISKubeBenchOutp
 			Version: kubeBenchVersion,
 		},
 		Summary:  c.summary(section),
+		GeneratedAt: starboard.GeneratedAt{Time: time.Now()},
 		Sections: section,
 	}
 
