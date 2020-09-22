@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	sec "github.com/aquasecurity/starboard/pkg/apis/aquasecurity/v1alpha1"
 	"io"
+	"time"
 )
 
 func OutputFrom(reader io.Reader) (report sec.KubeHunterOutput, err error) {
@@ -12,6 +13,7 @@ func OutputFrom(reader io.Reader) (report sec.KubeHunterOutput, err error) {
 		Vendor:  "Aqua Security",
 		Version: kubeHunterVersion,
 	}
+	report.GeneratedAt = sec.GeneratedAt{Time: time.Now()}
 	err = json.NewDecoder(reader).Decode(&report)
 	return
 }

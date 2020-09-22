@@ -68,6 +68,7 @@ type KubeHunterReportList struct {
 
 type KubeHunterOutput struct {
 	Scanner         Scanner                   `json:"scanner"`
+	GeneratedAt     GeneratedAt               `json:"generatedAt"`
 	Vulnerabilities []KubeHunterVulnerability `json:"vulnerabilities"`
 }
 
